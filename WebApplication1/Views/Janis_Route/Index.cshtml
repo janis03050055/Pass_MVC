@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //宣告通行證列表
+    IList<Pass.Models.Janis_Route.TempPass> passList =
+        new List<Pass.Models.Janis_Route.TempPass>();
+
+    passList.Add(new Pass.Models.Janis_Route.TempPass
+    {
+        Pass_no = 1,
+        habor = "高雄"
+    });
+
+    passList.Add(new Pass.Models.Janis_Route.TempPass
+    {
+        Pass_no = 2,
+        habor = "台中"
+    });
+
+    passList.Add(new Pass.Models.Janis_Route.TempPass
+    {
+        Pass_no = 3,
+        habor = "台北"
+    });
+}
+
+<h2>通行證列表</h2>
+<table class="table">
+    <thead><tr><td>通行證號</td><td>港區</td></tr></thead>
+    <tbody>
+        @foreach (var ps in passList)
+        {
+            <tr>
+                <td>@ps.Pass_no</td>
+                <td>@ps.habor</td>
+            </tr>
+        }
+    </tbody>
+</table>
